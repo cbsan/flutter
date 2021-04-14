@@ -5,7 +5,7 @@
 
 ---
 
-## Android SDK
+## Ambiente Flutter
 
 Configurando ambiente inicial para desenvolvimento Flutter+Android, assim facilitando o início de algum projeto.
 Esse dockerfile irá fazer o download e instalação da versão mais recente do Flutter juntamente com a SDK do Android.
