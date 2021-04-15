@@ -8,7 +8,7 @@ ENV PATH=${PATH}:/opt/flutter/bin
 
 RUN apt update && apt install -y \
   git xz-utils \
-&& curl -fsSL $FLUTTER_URL -o /tmp/flutter.tar.xz \
+&& curl -fsSL ${FLUTTER_URL} -o /tmp/flutter.tar.xz \
 && tar xf /tmp/flutter.tar.xz -C /opt \
 && rm -f /tmp/flutter.tar.xz \
 && apt-get autoremove -y \

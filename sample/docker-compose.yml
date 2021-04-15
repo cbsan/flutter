@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    image: cbsan/flutter
+    volumes:
+      - .:/usr/src
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    # command: sh -c "for f in ~/.android/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >> \"$f\"; done"
+    tty: true
+    privileged: true
+    environment:
+      DISPLAY: $DISPLAY
