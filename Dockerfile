@@ -10,4 +10,8 @@ RUN apt update && apt install -y \
   git xz-utils \
 && curl -fsSL $FLUTTER_URL -o /tmp/flutter.tar.xz \
 && tar xf /tmp/flutter.tar.xz -C /opt \
-&& rm -f /tmp/flutter.tar.xz
+&& rm -f /tmp/flutter.tar.xz \
+&& apt-get autoremove -y \
+&& rm -rf /var/lib/apt/lists/* \
+&& flutter precache \
+&& flutter config --no-analytics 
