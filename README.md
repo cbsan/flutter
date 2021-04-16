@@ -67,6 +67,7 @@ $ docker-compose exec app bash
 ```
 
 Os comandos abaixo serão executados dentro do container, importante ter no minimo duas janelas do terminal aberta, uma para rodar o emulador e outra para rodar o flutter.
+⚠️ Primeira execução ira demorar um pouco devido a criação dos arquivos no gradle e avd ⚠️
 
 - Executando o emulador:
 
@@ -74,9 +75,7 @@ Os comandos abaixo serão executados dentro do container, importante ter no mini
 $ runEmulator
 ```
 
-- Executando o app de teste:
-  ⚠️ Importante: Necessário que o emulador esteja rodando, Ok! ⚠️
-  ⚠️ Primeira execução ira demorar um pouco devido a criação dos arquivos no gradle ⚠️
+- Executando o app de teste: ⚠️ Importante: Necessário que o emulador esteja rodando, Ok! ⚠️
 
 ```sh
 flutter run ./lib/main.dart
