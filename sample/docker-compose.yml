@@ -7,8 +7,10 @@ services:
       - .:/usr/src
       - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix
-    # command: sh -c "for f in ~/.android/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >> \"$f\"; done"
+      - storage_avd:/root/.android/avd
     tty: true
     privileged: true
     environment:
       DISPLAY: $DISPLAY
+volumes:
+  storage_avd:

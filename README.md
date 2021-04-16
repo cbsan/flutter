@@ -36,13 +36,24 @@ $ docker run -ti --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-un
 
 ⚠️ Importante: Esse comando ira utilizar o X do SO pois ele abre uma janela do sistema, no caso do linux é necessário fazer o mapeamento, isso pode ser feito executando o comando **xhost local:root** no terminal local.:warning:
 
-Essa imagem contem um emulador Android configurado rodando na versão 28. Para executar utilize o comando abaixo:
+Essa imagem contem um emulador ja configurado rodando na versão 28. Para executar utilize o comando abaixo:
 
 ```sh
 $ runEmulator
 ```
 
 💡O comando deve ser executado dentro do container.
+
+#### Exemplo de utilização
+
+Para facilitar o trabalho estou utilizando docker-compose para gerenciar o ambiente, fiz o mapeamento dos avd para um volume do docker, assim toda configuração que for feita sera mantida em cada inicialização do ambiente, alem de tornar o inicio do emulador mais rápido devido manter o cache.
+Caso queira que seu teclado funcione dentro do emulador tera que configurar o emulador para isso. Básicamente cada emulador avd possui um arquivo "config.ini", basta adicionar a configuração "hw.keyboard=yes" no final desse arquivo, e iniciar o emulador normalmente que o teclado estará habilitado. Abaixo segue o comando que faz isso em todos avds criados:
+
+```sh
+$ for f in ~/.android/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done
+```
+
+⚠️ As configurações são armazenadas no "sample_storage_avd", para resetar os emuladores basta remover o volume **"docker volume rm -f sample_storage_avd"** ⚠️
 
 ---
 
