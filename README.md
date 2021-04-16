@@ -44,20 +44,40 @@ $ runEmulator
 
 💡O comando deve ser executado dentro do container.
 
-#### Exemplo de utilização
+#### Exemplo de utilização (dir sample)
 
 Para facilitar o trabalho estou utilizando docker-compose para gerenciar o ambiente, fiz o mapeamento dos avd para um volume do docker, assim toda configuração que for feita sera mantida em cada inicialização do ambiente, alem de tornar o inicio do emulador mais rápido devido manter o cache.
-Caso queira que seu teclado funcione dentro do emulador tera que configurar o emulador para isso. Básicamente cada emulador avd possui um arquivo "config.ini", basta adicionar a configuração "hw.keyboard=yes" no final desse arquivo, e iniciar o emulador normalmente que o teclado estará habilitado. Abaixo segue o comando que faz isso em todos avds criados:
+
+- Subindo o ambiente:
 
 ```sh
-$ for f in ~/.android/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done
+$ docker-compose up -d --force-recreate --remove-orphans
 ```
 
-⚠️ As configurações são armazenadas no "sample_storage_avd", para resetar os emuladores basta remover o volume **"docker volume rm -f sample_storage_avd"** ⚠️
+- Mapeando display X (Necessário para que o emulador consiga abrir a janela):
+
+```sh
+$ xhost local:root
+```
+
+- Acessando o ambiente:
+
+```sh
+$ docker-compose exec app bash
+```
+
+- Executando o emulador (dentro do container):
+
+```sh
+$ runEmulator
+```
+
+⚠️ As configurações são armazenadas no "sample_storage_avd", para resetar os emuladores basta remover o volume **"$ docker volume rm -f sample_storage_avd"** ⚠️
 
 ---
 
 ## Autor
 
 **Cristian B. Santos <cbsan.dev@gmail.com>**
+
 Give a ⭐️ if this project helped you!

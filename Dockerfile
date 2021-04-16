@@ -13,8 +13,8 @@ RUN apt update && apt install -y \
 && rm -f /tmp/flutter.tar.xz \
 && apt-get autoremove -y \
 && rm -rf /var/lib/apt/lists/* \
-&& rm -rf ~/.android/avd/* \
+&& rm -rf ${ANDROID_HOME}/avd/* \
 && flutter precache \
 && flutter config --no-analytics \
 && flutter emulators --create --name emu${ANDROID_EMULATOR_VERSION} \
-&& for f in ~/.android/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done

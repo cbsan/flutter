@@ -7,7 +7,7 @@ services:
       - .:/usr/src
       - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - storage_avd:/root/.android/avd
+      - storage_avd:/opt/android/.android/avd
     tty: true
     privileged: true
     environment:
