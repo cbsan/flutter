@@ -66,13 +66,23 @@ $ xhost local:root
 $ docker-compose exec app bash
 ```
 
-- Executando o emulador (dentro do container):
+Os comandos abaixo serão executados dentro do container, importante ter no minimo duas janelas do terminal aberta, uma para rodar o emulador e outra para rodar o flutter.
+
+- Executando o emulador:
 
 ```sh
 $ runEmulator
 ```
 
-⚠️ As configurações são armazenadas no "sample_storage_avd", para resetar os emuladores basta remover o volume **"$ docker volume rm -f sample_storage_avd"** ⚠️
+- Executando o app de teste:
+  ⚠️ Importante: Necessário que o emulador esteja rodando, Ok! ⚠️
+  ⚠️ Primeira execução ira demorar um pouco devido a criação dos arquivos no gradle ⚠️
+
+```sh
+flutter run ./lib/main.dart
+```
+
+⚠️ As configurações são armazenadas no "sample_storage_avd" e "storage_gradle", para resetar o ambiente basta remover os volume Ex.: **"$ docker volume rm -f sample_storage_avd"** ⚠️
 
 ---
 
