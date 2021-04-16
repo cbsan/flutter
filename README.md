@@ -46,7 +46,7 @@ $ runEmulator
 
 #### Exemplo de utilização (dir sample)
 
-Para facilitar o trabalho estou utilizando docker-compose para gerenciar o ambiente, fiz o mapeamento dos avd para um volume do docker, assim toda configuração que for feita sera mantida em cada inicialização do ambiente, alem de tornar o inicio do emulador mais rápido devido manter o cache.
+Para facilitar o trabalho estou utilizando docker-compose para gerenciar o ambiente, fiz o mapeamento dos avd e gradle para um volume do docker, assim toda configuração que for feita sera mantida em cada inicialização do ambiente, alem de tornar o inicio do emulador mais rápido devido manter o cache.
 
 - Subindo o ambiente:
 
@@ -78,7 +78,7 @@ $ runEmulator
 - Executando o app de teste: ⚠️ Importante: Necessário que o emulador esteja rodando, Ok! ⚠️
 
 ```sh
-flutter run ./lib/main.dart
+flutter run
 ```
 
 ⚠️ As configurações são armazenadas no "sample_storage_avd" e "storage_gradle", para resetar o ambiente basta remover os volume Ex.: **"$ docker volume rm -f sample_storage_avd"** ⚠️
