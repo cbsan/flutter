@@ -8,7 +8,7 @@ services:
       - ./my_app:/usr/src
       - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - storage_avd:/root/.android/avd
+      # - storage_avd:/root/.android/avd
       - storage_gradle:/root/.gradle
     tty: true
     privileged: true

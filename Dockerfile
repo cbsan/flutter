@@ -18,3 +18,5 @@ RUN apt update && apt install -y \
 && flutter config --no-analytics \
 && flutter emulators --create --name emu${ANDROID_EMULATOR_VERSION} \
 && for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done
+
+WORKDIR /usr/src
