@@ -17,6 +17,10 @@ RUN apt update && apt install -y \
 && flutter precache \
 && flutter config --no-analytics \
 && flutter emulators --create --name emu${ANDROID_EMULATOR_VERSION} \
-&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.keyboard=yes' >>  ${f}; done \
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.ramSize=3072' >>  ${f}; done \
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.density=.*/hw.lcd.density=320/'  ${f}; done \
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.height=.*/hw.lcd.height=1334/'  ${f}; done \
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.width=.*/hw.lcd.width=750/'  ${f}; done 
 
 WORKDIR /usr/src
