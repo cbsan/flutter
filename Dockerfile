@@ -3,7 +3,7 @@ FROM cbsan/android-sdk
 LABEL maintainer="Cristian B. Santos <cbsan.dev@gmail.com>"
 LABEL describle="Flutter development environment"
 
-ENV FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.5-stable.tar.xz
+ENV FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.0.6-stable.tar.xz
 ENV PATH=${PATH}:/opt/flutter/bin
 
 RUN apt update && apt install -y \
@@ -21,6 +21,7 @@ RUN apt update && apt install -y \
 && for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do echo 'hw.ramSize=3072' >>  ${f}; done \
 && for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.density=.*/hw.lcd.density=320/'  ${f}; done \
 && for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.height=.*/hw.lcd.height=1334/'  ${f}; done \
-&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.width=.*/hw.lcd.width=750/'  ${f}; done 
+&& for f in ${ANDROID_HOME}/avd/*.avd/config.ini; do sed -i 's/hw.lcd.width=.*/hw.lcd.width=750/'  ${f}; done \
+&& echo "if [ -f /usr/src/commands_app ]; then\n . /usr/src/commands_app\nfi" >> ~/.bashrc
 
 WORKDIR /usr/src
