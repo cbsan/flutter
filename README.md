@@ -83,6 +83,17 @@ flutter run
 
 ⚠️ As configurações são armazenadas no "sample_storage_avd" e "storage_gradle", para resetar o ambiente basta remover os volume Ex.: **"$ docker volume rm -f sample_storage_avd"** ⚠️
 
+ℹ️ Para facilitar o desenvolvimento existe a possibilidade de criação de scripts para seu app, por padrão espera-se que seja criado o arquivo "commands_app" dentro de /usr/src.
+Exemplo commands_app:
+
+```sh
+function run-app() {
+  flutter run
+}
+```
+
+Essa função fica disponível no bash do container com o nome da função criada, no caso "run-app"
+
 ---
 
 ## Autor
