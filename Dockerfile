@@ -3,7 +3,7 @@ FROM cbsan/android-sdk
 LABEL maintainer="Cristian B. Santos <cbsan.dev@gmail.com>"
 LABEL describle="Flutter development environment"
 
-ENV FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.2.2-stable.tar.xz
+ENV FLUTTER_URL=https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_2.2.2-stable.tar.xz
 ENV PATH=${PATH}:/opt/flutter/bin
 
 RUN apt update && apt install -y \
