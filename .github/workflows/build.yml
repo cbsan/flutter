@@ -24,6 +24,7 @@ jobs:
         run: |
           echo "Build release ${{ steps.vars.outputs.tag }}"
           docker build -t ${{ env.TAG_IMAGE }}:${GITHUB_REF#refs/*/} .
+          docker build -t ${{ env.TAG_IMAGE }}:latest .
 
       - name: Publish
         run: |
