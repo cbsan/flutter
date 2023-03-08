@@ -1,0 +1,31 @@
+name: Build Flutter
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+env:
+  TAG_IMAGE: cbsan/flutter
+
+jobs:
+  build-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckOut
+        uses: actions/checkout@v2
+      - name: Login Docker
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DK_USERNAME }}
+          password: ${{ secrets.DK_PASSWORD }}
+
+      - name: Build
+        run: |
+          echo "Build release ${{ steps.vars.outputs.tag }}"
+          docker build -t ${{ env.TAG_IMAGE }}:${GITHUB_REF#refs/*/} .
+
+      - name: Publish
+        run: |
+          docker push ${{ env.TAG_IMAGE }}:${GITHUB_REF#refs/*/}
+          docker push ${{ env.TAG_IMAGE }}:latest
